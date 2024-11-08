@@ -1,4 +1,4 @@
-import { defineDb, column, defineTable } from 'astro:db';
+import { column, defineDb, defineTable } from 'astro:db';
 
 const User = defineTable({
   columns: {
@@ -8,7 +8,8 @@ const User = defineTable({
   indexes: [{ on: ['name'], unique: true }],
 });
 
+
 // https://astro.build/db/config
 export default defineDb({
-  tables: {},
+  tables: { User }
 });

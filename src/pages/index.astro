@@ -3,27 +3,28 @@
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Astro</h1>
 
-		<button>Run Action</button>
+    <button>Run Action</button>
 
-		<script>
-			import { actions } from 'astro:actions';
-			
-			const button = document.querySelector('button');
-			button?.addEventListener('click', async () => {
-				// Show alert pop-up with greeting from action
-				const { data, error } = await actions.myAction({ name: "anton" });
-				if (!error) alert(data);
-			});
-		</script>
-	</body>
+    <script>
+      import { actions } from "astro:actions";
+
+      const button = document.querySelector("button");
+      button?.addEventListener("click", async () => {
+        // Show alert pop-up with greeting from action
+        const res = await actions.myAction({ name: "test" });
+        console.log("->", res);
+        if (res.error) alert(res.error.message);
+      });
+    </script>
+  </body>
 </html>
