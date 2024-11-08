@@ -21,7 +21,7 @@
       const button = document.querySelector("button");
       button?.addEventListener("click", async () => {
         // Show alert pop-up with greeting from action
-        const res = await actions.myAction({ name: "test" });
+        const res = await actions.createUser({ name: "test" });
         console.log("->", res);
         if (res.error) alert(res.error.message);
       });
